@@ -1,7 +1,7 @@
 * {
     background-color: aquamarine;
-    margin: 0px;
-    padding: 0px;
+    margin: 5px;
+    padding: 5px;
 }
 
 body {
@@ -19,4 +19,20 @@ body {
 
 #timer {
     display: none;
+}
+
+#question-1 {
+    display: none;
+}
+
+#question-2 {
+    display: none;
+}
+
+#question-3 {
+    display: none;
+}
+
+#button1 {
+    display: grid;
 }
