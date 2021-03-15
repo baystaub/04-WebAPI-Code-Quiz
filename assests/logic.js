@@ -93,6 +93,9 @@ function hideQuestions() {
 };
 
 function selectAnswer(e) {
+    let selected = e.target;
+    var correct = selected.dataset.correct;
+    setStatusClass(document.body, correct)
 
 };
 
