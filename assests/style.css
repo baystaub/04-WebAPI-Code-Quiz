@@ -32,3 +32,11 @@ body {
 .hide1 {
     display: none!important;
 }
+
+button {
+    margin-right: auto!important;
+    margin-left: auto!important;
+    flex: 0 0 auto;
+    width: 25%;
+    text-align: center!important;
+}

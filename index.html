@@ -29,17 +29,19 @@
         <button id='Button' class="col-3 mx-auto">Start
             Game</button>
     </main>
+    <section id='timer' style="float: right;">
+        <p>Time left: <span id='Tl'>10</span></p>
+    </section>
     <main>
         <main>
             <section id='questionContainer' class='col-12 text-center hide'>
-                <h5 id='question'>
-                    Question
+                <h5 id='question' aria-placeholder="Question">
                 </h5>
                 <div id='answers' style="display: grid;">
-                    <button id='answer-1a' class='button1 col-3 mx-auto'>answer</button>
-                    <button id='answer-2a' class='button1 col-3 mx-auto'>answer</button>
-                    <button id='answer-3a' class='button1 col-3 mx-auto'>answer</button>
-                    <button id='answer-4a' class='button1 col-3 mx-auto'>answer</button>
+                    <!-- <button class='button1 col-3 mx-auto'>answer</button>
+                    <button class='button1 col-3 mx-auto'>answer</button>
+                    <button class='button1 col-3 mx-auto'>answer</button>
+                    <button class='button1 col-3 mx-auto'>answer</button> -->
                 </div>
             </section>
             <!-- <section id='question-2' class='col-12 text-center'>
@@ -62,9 +64,6 @@
                     challenge</button>
             </section> -->
         </main>
-        <section id='timer'>
-            <p>Time left: <span id='Tl'>10</span></p>
-        </section>
     </main>
 
 

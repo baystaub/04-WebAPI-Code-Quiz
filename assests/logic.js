@@ -9,7 +9,7 @@ var secondsLeft = '';
 var score = '';
 var confirm = '';
 var answerButtons = $("#answers");
-let question = [{
+const questions = [{
     question: 'What laungage do you use for logic based coding?',
     answers: [
         { text: 'JavaScript', correct: true },
@@ -34,6 +34,7 @@ let question = [{
         { text: 'for the extra challenge', correct: false }
     ]
 }];
+let shuffledQuestions, currentQuestionIndex
 
 //on click with the start button
 Startbtn.on('click', startGame);
@@ -48,17 +49,21 @@ function startGame() {
         //shows the timer
     document.getElementById('timer').style.display = 'grid'
         //randomly shuffles the question
-    shuffledQuestions = question.sort(() => Math.random() - 1);
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
     //starting the question index off at 0
     currentQuestionIndex = 0;
     //console logs the initial click to start the game
-    console.log('clicked initial');
+    console.log('start game');
     //sets second left in the timer bar
     secondsLeft = 10000000000;
     //starts timer function when clicked, counts down from 80
-    setTime();
+    // setTime();
+    setNextQuestion();
+}
+
+function setNextQuestion() {
+    showQuestion(shuffledQuestions[currentQuestionIndex])
     reset();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
 };
 
 //set time function
@@ -85,26 +90,26 @@ function setTime() {
 function hideQuestions() {
     //sets question container to display none
     questionContainerElement.addClass('hide1');
-}
+};
 
 function selectAnswer(e) {
 
-}
+};
 
-function showQuestion(question) {
-    questionEl.innerText = question.question;
-    question.answers.forEach(answer => {
-        const button = document.createElement("button");
+function showQuestion(questions) {
+    questionEl.text(questions.question);
+    console.log(questions)
+    questions.answers.forEach(answer => {
+        let button = document.createElement("button");
         button.innerText = answer.text;
-        button.classList.add("btn");
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
         button.addEventListener("click", selectAnswer)
-        answerButtons.append('button');
+        answerButtons.append(button);
         console.log(question);
     })
-}
+};
 
 function reset() {
     while (answerButtons.firstChild) {
