@@ -61,3 +61,50 @@ I used some Jquery and bootstrap to make my time styling and grabbing object eas
 some exampls of bootstrap in the html are -
 
 line 34:"class=col-3 mx-auto"
+
+i did have to change some css to get some of the center of the buttons correct, due to dynamicly adding the buttons. instead of just changing the innerhtml text
+
+```
+button {
+    margin-right: auto!important;
+    margin-left: auto!important;
+    flex: 0 0 auto;
+    width: 25%;
+    text-align: center!important;
+}
+```
+
+this is the style that i got from col-3 and mx-auto bootstrap code.
+
+working my way thru the basics i started to get onto javascript.
+
+first step was creating a timer, i wanted the timer to start at 80 and count down by 1.
+
+```
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeLeft.textContent = secondsLeft;
+
+        if (secondsLeft === 0) {
+            //clears the time interval to stop counting
+            clearInterval(timerInterval);
+            //alerts player to try again
+            alert('please try again');
+            //when time is up shows the start button to try again
+            Startbtn.removeClass('hide1');
+            //calls function to hide
+            hideQuestions();
+        }
+
+    }, 1000);
+
+};
+```
+
+this is saying that the timer needs to count down, instead of count up. we set this by putting secondsleft variable to --. while its counting down we want it to show on the screen. we update the textContent var to secondsLeft.
+
+if the timer reaches 0
+i wanted it to clear the interval time:
+alert the player that he lost and should try again:
+and remove the class hide1 from the startbutton to show it up again.
