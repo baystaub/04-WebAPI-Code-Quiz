@@ -57,7 +57,7 @@ function startGame() {
     //sets second left in the timer bar
     secondsLeft = 10000000000;
     //starts timer function when clicked, counts down from 80
-    // setTime();
+    setTime();
     setNextQuestion();
 }
 
