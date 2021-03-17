@@ -35,9 +35,23 @@ const questions = [{
     ]
 }];
 let shuffledQuestions, currentQuestionIndex
+var answer = $('button');
+
 
 //on click with the start button
-Startbtn.on('click', startGame);
+Startbtn.on('click', startGame); {
+    answer.on('click', function() {
+        if ('data-correct' === true) {
+            console.log('clicked')
+            currentQuestionIndex++
+            reset();
+            setNextQuestion();
+        } else {
+            alert('wrong answer please pick a differnt question');
+            console.log('wrong')
+        }
+    })
+};
 
 function startGame() {
     //hides the start button
@@ -55,10 +69,11 @@ function startGame() {
     //console logs the initial click to start the game
     console.log('start game');
     //sets second left in the timer bar
-    secondsLeft = 10000000000;
+    secondsLeft = 5;
     //starts timer function when clicked, counts down from 80
     setTime();
     setNextQuestion();
+    questionContainerElement.removeClass('hide1')
 }
 
 function setNextQuestion() {
@@ -79,6 +94,7 @@ function setTime() {
             alert('please try again');
             //when time is up shows the start button to try again
             Startbtn.removeClass('hide1');
+            Highscores.removeClass('hide1');
             //calls function to hide
             hideQuestions();
         }
@@ -95,8 +111,30 @@ function hideQuestions() {
 function selectAnswer(e) {
     let selected = e.target;
     var correct = selected.dataset.correct;
-    setStatusClass(document.body, correct)
+    setStatusClass(document.body.button, correct)
+    Array.from(answerButtons.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
 
+    if (shuffledQuestions.length < currentQuestionIndex + 1) {
+        var high = prompt('congradulation you completed the quiz, Please eneter your name;' + timeLeft)
+        console.log(high)
+    };
+}
+
+function setStatusClass(element, correct) {
+    clearStatus(element)
+    if (correct) {
+        $(element).addClass('correct')
+    } else {
+
+        $(element).addClass('wrong')
+    }
+};
+
+function clearStatus(element) {
+    $(element).removeClass('correct')
+    $(element).removeClass('wrong')
 };
 
 function showQuestion(questions) {
