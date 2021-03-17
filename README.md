@@ -18,31 +18,48 @@ Coding the quiz game, i started off with the basic html;
 <body>
     <h1 class='col-12 text-center'>Coding Quiz!</h1>
     <main id='Highscores' class='col-12 justify-content-center text-center'>
-        <ul>
-            <h3>Highschores</h3>
-            <li id='high1'>Highscore 1</li>
+        <h3>Highscores</h3>
 
-            <li id='high2'>
-                Highscore 2
-            </li>
-            <li id='high3'>
-                Highscore 3
-            </li>
-        </ul>
     </main>
     <main>
-        <button id='Button' class="col-3 mx-auto">Start
+        <button data-correct=true id='Button' class="col-3 mx-auto">Start
             Game</button>
     </main>
     <section id='timer' style="float: right;">
         <p>Time left: <span id='Tl'>10</span></p>
     </section>
     <main>
-        <main>
-            <section id='questionContainer' class='col-12 text-center hide'>
-                <h5 id='question' aria-placeholder="Question">
+        <main id='questionContainer' class='col-12 text-center hide'>
+            <section id='question1'>
+                <h5 aria-placeholder="Question">
+                    What laungage do you use for logic based coding?
                 </h5>
                 <div id='answers' style="display: grid;"></div>
+                <button onclick=clickedq1()>javascript</button>
+                <button onclick="alert('wrong answer');">css</button>
+                <button onclick="alert('wrong answer');">Html</button>
+                <button onclick="alert('wrong answer');">zoom</button>
+            </section>
+            <section id='question2' class='hide'>
+                <h5 class='col-12 text-center'>What would you use in css to make font bold?</h5>
+                <div>
+                    <button onclick=clickedq2()>font-weight</button>
+                    <button onclick="alert('wrong answer');">text-content</button>
+                    <button onclick="alert('wrong answer');">text-type</button>
+                    <button onclick="alert('wrong answer');">your
+                        imagination</button>
+                </div>
+            </section>
+            <section id='question3' class="hide">
+                <h5 class=' col-12 text-center '>why would you style in javascript
+                </h5>
+                <div>
+                    <button onclick="alert('wrong answer');">for fun</button>
+                    <button onclick="alert('wrong answer');">for the
+                        challenge</button>
+                    <button onclick=clickedq3()>dynamicly change things</button>
+                    <button onclick="alert('wrong answer');">why not</button>
+                </div>
             </section>
         </main>
     </main>
@@ -52,7 +69,7 @@ Coding the quiz game, i started off with the basic html;
 </script>
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js "></script>
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js "></script>
-<script src='./assests/logic.js'></script>
+<script src=' ./assests/logic.js '></script>
 
 </html>
 ```
